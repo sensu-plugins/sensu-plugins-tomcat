@@ -6,3 +6,4 @@ This CHANGELOG follows the format listed at [Keep A Changelog](http://keepachang
 ## Unreleased
 ## Added
 - Basic Skel.
+- missing pr template
