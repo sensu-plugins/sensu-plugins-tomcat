@@ -8,7 +8,19 @@
 
 ## Functionality
 
+**check-tomcat-app-deployment**
+
+Check current runtime status/deploymnet status of a application:
+  A deployment represents anything that can be deployed:
+  Such as EJB-JAR, WAR, EAR, any kind of standard archive such as RAR or JBoss-specific deployment)
+
+**check-tomcat-heap-pcnt**
+
+Check the percentage of JVM Memory
+
 ## Files
+ * check-tomcat-app-deployment.rb
+ * check-tomcat-heap-pcnt.rb
 
 ## Usage
 
