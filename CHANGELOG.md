@@ -2,6 +2,9 @@
 This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## Unreleased
+### Fixed
+- Corrected long option value for passwords - from "passowrd" to "password"
+
 ### Removed
 - code climate badge as we don't really use it anymore
 

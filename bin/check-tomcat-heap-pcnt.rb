@@ -47,7 +47,7 @@ class CheckTomcatHeapMemory < Sensu::Plugin::Check::CLI
   option :password,
          description: 'Tomcat User password',
          short: '-p PASSWORD',
-         long: '--passowrd PASSWORD',
+         long: '--password PASSWORD',
          default: 'password',
          required: true
 
