@@ -17,10 +17,16 @@
 #
 # USAGE:
 #  Basic Usage:
-#    ./metrics-tomcat-jmxproxy.rb --url http://localhost:8080 --account admin --password password --bean 'java.lang:type=MemoryPool,name=Compressed Class Space' --attribute PeakUsage --key used --scheme my.scheme
+#    ./metrics-tomcat-jmxproxy.rb
+#      --url http://localhost:8080
+#      --account admin
+#      --password password
+#      --bean 'java.lang:type=MemoryPool,name=Compressed Class Space'
+#      --attribute PeakUsage
+#      --key used
+#      --scheme my.scheme
 #
 #    my.scheme.PeakUsage.used 2523848 1513887865
-#
 #
 # NOTES:
 #
