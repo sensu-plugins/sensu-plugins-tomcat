@@ -2,6 +2,9 @@
 This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## Unreleased
+### Added
+- metrics-tomcat-jmxproxy.rb: Support querying metrics from the jmxproxy servlet
+
 ## [0.1.1] 2017-06
 ### Fixed
 - Corrected long option value for passwords - from "passowrd" to "password"

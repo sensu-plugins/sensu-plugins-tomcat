@@ -16,9 +16,14 @@ Check current runtime status/deploymnet status of a application:
 
 Check the percentage of JVM Memory
 
+**metrics-tomcat-jmxproxy**
+
+Return value of JMX attribute to Graphite via Tomcat's JMXProxy
+
 ## Files
  * check-tomcat-app-deployment.rb
  * check-tomcat-heap-pcnt.rb
+ * metrics-tomcat-jmxproxy.rb
 
 ## Usage
 
