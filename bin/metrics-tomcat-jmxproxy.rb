@@ -12,6 +12,7 @@
 #   Linux
 #
 # DEPENDENCIES:
+#   gem: addressable
 #   gem: sensu-plugin
 #   gem: unirest
 #
@@ -32,44 +33,39 @@
 #
 # See http://localhost:8080/docs/manager-howto.html for security information
 
+require 'addressable/uri'
 require 'sensu-plugin/metric/cli'
 require 'unirest'
-require 'uri'
 
 class MetricsTomcatJMXProxy < Sensu::Plugin::Metric::CLI::Graphite
   option :url,
          description: 'URL of the Tomcat Manager',
          short: '-u URL',
          long: '--url URL',
-         default: 'http://localhost:8080',
          required: true
 
   option :account,
          description: 'Username of the Tomcat User that has the manager-jmx role',
          short: '-a USERNAME',
          long: '--account USERNAME',
-         default: 'admin',
          required: true
 
   option :password,
          description: 'Tomcat User password',
          short: '-p PASSWORD',
          long: '--password PASSWORD',
-         default: 'password',
          required: true
 
   option :bean,
          description: 'Full name of the MBean to query',
          short: '-b VALUE',
          long: '--bean VALUE',
-         default: 'java.lang:type=Memory',
          required: true
 
   option :attribute,
          description: 'MBean attribute to return. Default metric name',
          short: '-l VALUE',
          long: '--attribute VALUE',
-         default: 'HeapMemoryUsage',
          required: true
 
   option :attrkey,
@@ -90,8 +86,15 @@ class MetricsTomcatJMXProxy < Sensu::Plugin::Metric::CLI::Graphite
          long: '--metric METRIC',
          required: false
 
+  option :timeout,
+         description: 'HTTP request timeout in seconds. Default: 5',
+         short: '-T TIMEOUT',
+         long: '--timeout TIMEOUT',
+         default: 5,
+         required: false
+
   def run
-    uri = URI("#{config[:url]}/manager/jmxproxy?get=#{config[:bean]}&att=#{config[:attribute]}")
+    uri = Addressable::URI.parse("#{config[:url]}/manager/jmxproxy?get=#{config[:bean]}&att=#{config[:attribute]}")
     fq_metric = config[:scheme] + '.' + (config[:metric] || config[:attribute])
 
     if config[:attrkey]
@@ -99,8 +102,11 @@ class MetricsTomcatJMXProxy < Sensu::Plugin::Metric::CLI::Graphite
       fq_metric += '.' + config[:attrkey].to_s
     end
 
+    uri.normalize!
+    fq_metric.downcase!
+
     # Fetch attribute from Tomcat
-    Unirest.timeout(5) # 5s timeout
+    Unirest.timeout(config[:timeout])
     response = Unirest.get uri.to_s, auth: { user: @config[:account].to_s, password: @config[:password].to_s }
 
     if response.code != 200
