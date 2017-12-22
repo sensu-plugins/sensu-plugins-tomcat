@@ -1,9 +1,16 @@
-#Change Log
+# Change Log
 This project adheres to [Semantic Versioning](http://semver.org/).
 
+This CHANGELOG follows the format listed [here](https://github.com/sensu-plugins/community/blob/master/HOW_WE_CHANGELOG.md)
+
 ## Unreleased
+
+## [0.2.0] - 2017-12-22
 ### Added
-- metrics-tomcat-jmxproxy.rb: Support querying metrics from the jmxproxy servlet
+- metrics-tomcat-jmxproxy.rb: Support querying metrics from the jmxproxy servlet (@luyseyal)
+
+### Changed
+- updated changelog gudelines and PR templates (@majormoses)
 
 ## [0.1.1] 2017-06
 ### Fixed
@@ -20,5 +27,6 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 ### Added
 - Initial release
 
-[Unreleased]: https://github.com/sensu-plugins/sensu-plugins-tomcat/compare/0.1.1...HEAD
+[Unreleased]: https://github.com/sensu-plugins/sensu-plugins-tomcat/compare/0.2.0...HEAD
+[0.2.0]: https://github.com/sensu-plugins/sensu-plugins-tomcat/compare/0.1.1...0.2.0
 [0.1.1]: https://github.com/sensu-plugins/sensu-plugins-tomcat/compare/0.1.0...0.1.1
