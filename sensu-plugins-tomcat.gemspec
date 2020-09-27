@@ -33,7 +33,7 @@ Gem::Specification.new do |s|
   s.version                = SensuPluginsTomcat::Version::VER_STRING
 
   s.add_runtime_dependency 'sensu-plugin', '>= 1.2', '< 5.0'
-  s.add_runtime_dependency 'addressable', '~> 2.3.8'
+  s.add_runtime_dependency 'addressable', '>= 2.3.8', '< 2.8.0'
   s.add_runtime_dependency 'crack', '0.4.3'
   s.add_runtime_dependency 'unirest', '1.1.2'
 
